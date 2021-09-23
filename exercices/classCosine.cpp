@@ -1,6 +1,5 @@
 #include <iostream>
 #include <iomanip>
-#include <cmath>
 
 using namespace std;
 
@@ -30,18 +29,25 @@ class TrigonometricFunction {
       return result;
     }
 
-
-    void setSine() {
-      float evaluate = 1 - myPow(cos, 2);
-
-      sin = sqrt(evaluate);
-    }
-
     void setTangent() {
       tan = sin / (float)cos;
     }
 
   public:
+    void setSine(float angle, int terms) {
+      sin = angle;
+      int exponent = 3;
+      int signal = -1;
+      float numerator = 0, denominator = 0, nthTerm;
+      for(int i = 0; i < terms; i++) {
+        numerator = myPow(angle, exponent);
+        denominator = myFactorial(exponent);
+        nthTerm = (numerator * signal) / (float)denominator;
+        sin += nthTerm;
+        signal *= -1;
+        exponent += 2;
+      }
+    }
 
     void setCosine(float angle, int terms) {
       cos = 1;
@@ -59,7 +65,6 @@ class TrigonometricFunction {
     }
 
     float getSine() {
-      setSine();
       return sin;
     }
 
@@ -84,6 +89,7 @@ int main() {
   cin >> terms;
 
   trigFuntions.setCosine(angle, terms);
+  trigFuntions.setSine(angle, terms);
   cout << "SENO: " << setw(12) << trigFuntions.getSine() << endl;
   cout << "COSSENO: " << setw(9) << trigFuntions.getCosine() << endl;
   cout << "TANGENTE: " << setw(6) << trigFuntions.getTangent() << endl;
