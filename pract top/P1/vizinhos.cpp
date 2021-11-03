@@ -24,11 +24,10 @@ Para a execução do código portanto deve ser chamado o método setMatrizA(arg)
 */
 
 Vizinhos::Vizinhos() {
-  linhas = 5;
-  colunas = 5;
+  linhas = colunas = 23;
 }
 
-int Vizinhos::setMatrizA(int matriz[3][3]) {// Aloca a Memória da Matriz A da Classe e copia a Matriz A da sua main para a classe;
+int Vizinhos::setMatrizA(int matriz[21][21]) {// Aloca a Memória da Matriz A da Classe e copia a Matriz A da sua main para a classe;
   matrizA = new int*[colunas]();
   for(int i = 0; i < colunas; i++) {
     matrizA[i] = new int[linhas]();

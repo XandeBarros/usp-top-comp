@@ -10,7 +10,7 @@ private:
   float** matrizB;
 public:
   Vizinhos();
-  int setMatrizA(int matriz[3][3]);
+  int setMatrizA(int matriz[21][21]);
   int getMatrizA();
   int setMatrizB();
   int getMatrizB();
