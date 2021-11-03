@@ -2,9 +2,10 @@
 
 using namespace std;
 /*
-
 A ideia pensada para o solução desse problema é a seguinte:
-A Matriz B em determinadas posições acessa locais de memória que a Matriz A não existe e nesses pontos eles devem ser nulos, para evitar que a Matriz B termine usando algum lixo que tenha nesses espaços a ideia é alocar uma Matriz maior (duas linhas e duas colunas a mais) no qual as bordas serão nulas e o meio será o espaço útil 21 x 21.
+A Matriz B em determinadas posições acessa locais de memória que a Matriz A não existe e nesses pontos eles devem ser nulos, 
+para evitar que a Matriz B termine usando algum lixo que tenha nesses espaços a ideia é alocar uma Matriz maior 
+(duas linhas e duas colunas a mais) no qual as bordas serão nulas e o meio será o espaço útil 21 x 21.
 0 0 0 ... 0 0 0
 0 1 2 ... 2 1 0
 .   espaço    .
@@ -18,12 +19,19 @@ Os espaços de memória também foram alocados dinamicamente usando a própria s
 chave new e ponteiros.
 Devido a esse fato também foi criado uma função membro que desaloca essa memória, tanto da Matriz A como da Matriz B.
 
-Usando os paradigmas da Programação Orientada a Objetos, os atributos só podem ser acessados e editados por meio de getters e setters. Portando seguindo os passos Definir Matriz A -> Mostrar Matriz A -> Definir Matriz B -> Mostrar Matriz B é a melhor forma de implementar o código. Lembrando de ao final do código também desalocar a memória.
+Usando os paradigmas da Programação Orientada a Objetos, os atributos só podem ser acessados e editados por meio de
+getters e setters. Portando seguindo os passos Definir Matriz A -> Mostrar Matriz A -> Definir Matriz B -> Mostrar Matriz B 
+é a melhor forma de implementar o código. Lembrando de ao final do código também desalocar a memória.
 
-Para a execução do código portanto deve ser chamado o método setMatrizA(arg) passando como argumento a matriz 21 x 21 que o senhor citou que já possui, por exemplo, vizinho.setMatrizA(MatrizA), caso queira ver se tudo ocorreu bem e os valores estão de fato lá pode-se então usar o método getMatrizA() e ver elementos da Matriz A da Classe. Então deve ser chamado método setMatrizB() que vai calcular a matriz B com os devidos pesos e para ver o resultado basta chamar o metédo getMatrizB() que irá mostrar a Matriz B no terminal e por fim antes de fechar o código use o método desalocarMemoria() para desalocar a memória usada na Matriz A e B na Classe.
+Para a execução do código portanto deve ser chamado o método setMatrizA(arg) passando como argumento a matriz 21 x 21 
+que o senhor citou que já possui, por exemplo, vizinho.setMatrizA(MatrizA), caso queira ver se tudo ocorreu bem e os 
+valores estão de fato lá pode-se então usar o método getMatrizA() e ver elementos da Matriz A da Classe. 
+Então deve ser chamado método setMatrizB() que vai calcular a matriz B com os devidos pesos e para ver o resultado 
+basta chamar o metédo getMatrizB() que irá mostrar a Matriz B no terminal e por fim antes de fechar o código use o 
+método desalocarMemoria() para desalocar a memória usada na Matriz A e B na Classe.
 */
 
-Vizinhos::Vizinhos() {
+Vizinhos::Vizinhos() { // Construtor da Classe, apenas define o tamanho da memória a ser alocada, 23 x 23 onde as bordas serão nulas
   linhas = colunas = 23;
 }
 
